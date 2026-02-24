@@ -1,14 +1,17 @@
 package first_level;
 
-/*
-Exercicis:
-Crea un enum anomenat Day amb els dies de la setmana. Fes una funció que rebi un Day i imprimeixi si és laborable o cap de setmana.
-Crea un enum Level amb valors LOW, MEDIUM i HIGH. Crea una classe Task amb una propietat Level i mostra com canvia el comportament en funció del nivell.
-Afegeix mètodes dins l’enum i comprova que poden tenir lògica (ex: getColor() per cada nivell de Level).
-Converteix un String a enum (amb valueOf) i gestiona errors si el valor no és vàlid.
- */
-
 public class FirstLevelMain {
     public static void main (String[] args){
+        System.out.println(Day.FRIDAY.getIsWorkingDay());
+        System.out.println(Day.SUNDAY.getIsWorkingDay());
+
+        Task task1 = new Task("Create an enum called Level", Level.MEDIUM);
+        System.out.println(task1.warningString());
+        Task task2 = new Task("Convert a String to an enum", Level.HIGH);
+        System.out.println(task2.warningString());
+
+        Level lowLevel = Level.valueOf("LOW");
+        task2.setLevel(lowLevel);
+        System.out.println(task2);
     }
 }
