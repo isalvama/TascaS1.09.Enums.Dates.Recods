@@ -23,12 +23,11 @@ public class Agenda {
     }
 
     public List<Appointment> getNextAppointments (){
-        List<Appointment> list = appointmentList.stream()
+        return appointmentList.stream()
                 .filter(a -> a.getDate().
                         isBefore(LocalDateTime.now().
                                 plusDays(8))).
                 toList();
-        return list;
     }
 
     public List<Appointment> getAppointmentList() {
