@@ -3,9 +3,6 @@ package third_level;
 import java.time.LocalDateTime;
 import java.time.Month;
 
-/*
-TODO Compara un record amb una classe tradicional i comenta les diferències en llegibilitat i utilitat.
- */
 public class ThirdLevelMain {
     public static void main(String[] args){
         Person person1 = new Person("Joe Dwight", 45);
@@ -24,7 +21,7 @@ public class ThirdLevelMain {
         Person person9 = new Person("Andrea Nidoli", 55);
 
 
-        Event talentArenaEvent = new Event(LocalDateTime.of(2026, Month.MARCH, 3, 9, 0), "Talent Arena");
+        Event talentArenaEvent = new Event(LocalDateTime.of(2026, Month.MARCH, 3, 9, 0), "Talent Arena", 100);
         talentArenaEvent.addAttendee(person8);
         talentArenaEvent.addAttendee(person1, person4, person5, person6, person7);
         talentArenaEvent.addAttendee(person8);
@@ -36,5 +33,7 @@ public class ThirdLevelMain {
         System.out.println(person4.getSurname());
         System.out.println(person1.getSurname());
         System.out.println(person5.getSurname());
+
+        System.out.println(person4.getFinalPrice(talentArenaEvent.getPrice()));
     }
 }

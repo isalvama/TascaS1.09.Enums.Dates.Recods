@@ -15,7 +15,20 @@ public record Person (String nameSurname, int age) {
             throw new IllegalArgumentException("The age cannot be greater than 140");
         }
     }
-    public String getSurname (){
+    public String getSurname(){
         return Arrays.stream(this.nameSurname().split(" ")).toList().getLast();
     }
+
+    public AgeLabel getAgeLabel(){
+        for (AgeLabel a : AgeLabel.values()) {
+            if (a.getAgeLabel(this.age())) return a;
+        }
+        return AgeLabel.OTHER;
+    }
+
+    public double getFinalPrice(double price){
+        System.out.println(this.getAgeLabel().discount /100);
+        return price - (this.getAgeLabel().discount /100 * price);
+    }
+
 }
