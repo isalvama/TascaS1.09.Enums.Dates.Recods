@@ -17,10 +17,7 @@ enum AgeLabel {
     }
 
     public boolean getAgeLabel (int age){
-        if (age <= this.maxAge && age >= this.minAge) {
-            return true;
-        }
-        return false;
+        return age <= this.maxAge && age >= this.minAge;
 
     }
 }

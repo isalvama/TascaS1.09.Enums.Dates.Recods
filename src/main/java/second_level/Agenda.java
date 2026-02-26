@@ -19,7 +19,6 @@ public class Agenda {
         } else {
             appointmentList.add(appointment);
         }
-
     }
 
     public List<Appointment> getNextAppointments (){
