@@ -28,12 +28,4 @@ public class Agenda {
                                 plusDays(8))).
                 toList();
     }
-
-    public List<Appointment> getAppointmentList() {
-        return List.copyOf(appointmentList);
-    }
-
-    public void setAppointmentList(List<Appointment> appointmentList) {
-        this.appointmentList = appointmentList;
-    }
 }
