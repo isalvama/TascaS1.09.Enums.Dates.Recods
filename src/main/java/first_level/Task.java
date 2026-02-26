@@ -4,23 +4,29 @@ public class Task {
     private String taskBody;
     private Level level;
     private boolean isDone;
+    private int nOfExpectedDaysToLast;
+    private String color;
 
     public Task (String taskBody, Level level){
         this.level = level;
         this.taskBody = taskBody;
         this.isDone = false;
+        this.nOfExpectedDaysToLast = level.getNOfExpectedDaysToLast();
+        this.color = level.getColor();
     }
 
     public String warningString() {
         return switch (this.level) {
             case LOW -> "This is an easy task, it can be done in just a day";
             case MEDIUM -> "This task is not that easy, it might take more than a day";
-            case HIGH -> "This task is quite difficult, it might take more than 5 days.";
+            case HIGH -> "This task is quite difficult, it might take more than two days.";
         };
     }
 
     public void setLevel (Level level){
         this.level = level;
+        this.nOfExpectedDaysToLast = level.getNOfExpectedDaysToLast();
+        this.color = level.getColor();
     }
 
     @Override
@@ -29,6 +35,8 @@ public class Task {
                 "taskBody='" + taskBody + '\'' +
                 ", level=" + level +
                 ", isDone=" + isDone +
+                ", nOfExpectedDaysToLast=" + nOfExpectedDaysToLast +
+                ", color=" + color +
                 '}';
     }
 }

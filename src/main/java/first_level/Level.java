@@ -1,21 +1,32 @@
 package first_level;
 
-/*
-TODO: Afegeix mètodes dins l’enum i comprova que poden tenir lògica (ex: getColor() per cada nivell de Level).
-TODO: Converteix un String a enum (amb valueOf) i gestiona errors si el valor no és vàlid.
- */
 public enum Level {
-    LOW("green"),
-    MEDIUM("yellow"),
-    HIGH("red");
+    LOW("green", 1),
+    MEDIUM("yellow", 2),
+    HIGH("red", 4);
 
     private final String color;
+    private final int nOfExpectedDaysToLast;
 
-     Level( String color){
+    Level(String color, int nOfExpectedDaysToLast){
         this.color = color;
+        this.nOfExpectedDaysToLast = nOfExpectedDaysToLast;
     }
 
     public String getColor() {
         return color;
     }
+
+    public int getNOfExpectedDaysToLast() {
+        return this.nOfExpectedDaysToLast;
+    }
+
+    public static Level getLevelFromString(String levelStr) throws RuntimeException {
+        String formattedString = levelStr.toLowerCase();
+        if (!formattedString.equals("low") && !formattedString.equals("medium") && !formattedString.equals("high")){
+            throw new RuntimeException("Error: Invalid value. The level value must be 'low', 'medium' or 'high'");
+        }
+        return Level.valueOf(levelStr.toUpperCase());
+    }
+
 }
